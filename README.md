@@ -1,1 +1,0 @@
-# Bigsur Icon Maker
