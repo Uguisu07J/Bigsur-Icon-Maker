@@ -1,1 +1,1 @@
-# Bigsur-Icon-Maker
+# Bigsur Icon Maker
