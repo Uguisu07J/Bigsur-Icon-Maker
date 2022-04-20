@@ -1,9 +1,17 @@
 const download = () => {
+    const file = document.getElementById('file').files[0];
+    if (file == null) {
+        alert('No file selected.');
+        return;
+    } else if (document.getElementById('scale').validity.badInput) {
+        alert('The scale is invalid.');
+        return;
+    }
     const reader = new FileReader();
     reader.onloadend = () => {
         generate(reader.result);
     }
-    reader.readAsDataURL(document.getElementById('file').files[0]);
+    reader.readAsDataURL(file);
 }
 
 async function generate(iconSource) {
@@ -19,7 +27,7 @@ async function generate(iconSource) {
     canvas.height = size;
     const context = canvas.getContext('2d');
     context.drawImage(mask, 0, 0, size, size);
-    const scale = document.getElementById('scale').value;
+    const scale = document.getElementById('scale').valueAsNumber;
     const defaultIconSize = 824;
     const iconPosition = (size - scale * defaultIconSize) / 2;
     const iconSize = scale * defaultIconSize;
