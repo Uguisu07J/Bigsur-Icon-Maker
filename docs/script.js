@@ -4,7 +4,7 @@ const download = () => {
         alert('No file selected.');
         return;
     } else if (document.getElementById('scale').validity.badInput) {
-        alert('The scale is invalid.');
+        alert('Scale value is invalid.');
         return;
     }
     const reader = new FileReader();
