@@ -15,18 +15,18 @@ const download = () => {
 }
 
 async function generate(iconSource) {
-    const mask = new Image();
-    mask.src = 'mask.png';
+    const template = new Image();
+    template.src = 'template.png';
     const icon = new Image();
     icon.src = iconSource;
-    await mask.decode();
+    await template.decode();
     await icon.decode();
     const size = 1024;
     const canvas = document.createElement('canvas');
     canvas.width = size;
     canvas.height = size;
     const context = canvas.getContext('2d');
-    context.drawImage(mask, 0, 0, size, size);
+    context.drawImage(template, 0, 0, size, size);
     const scale = document.getElementById('scale').valueAsNumber;
     const defaultIconSize = 824;
     const iconPosition = (size - scale * defaultIconSize) / 2;
